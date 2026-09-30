@@ -1,2 +1,4 @@
 # 2026-Viromics-Practicals
  Practical examples for Viromics Workshop 2026. Contains a guided walkthrough of virus identification, annotation, taxonomy, host prediction, and ecological statistics
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/jamesriddellv/2026-Viromics-Practicals/blob/main/day1_and_2_Bioreactor_viruses_deep_dive_identification.ipynb)
