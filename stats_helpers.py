@@ -381,7 +381,7 @@ def plot_genes(
                 rotation=90,
                 ha="center",  # Horizontal center aligned with gene midpoint
                 va="top",  # Top of text anchored at y=-0.35 (grows downwards)
-                fontsize=8,
+                fontsize=6,
                 clip_on=True,  # Keeps labels within plot bounds
             )
 
