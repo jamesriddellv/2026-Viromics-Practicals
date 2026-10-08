@@ -294,3 +294,112 @@ def add_stripplot(ax, plot_df, y_col, marker_map):
                 s=8,
                 linewidth=0.5,
             )
+
+import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+def plot_genes(
+    df_genes: pd.DataFrame,
+    label_col: str = "kegg_hit",
+    figsize: tuple = (12, 3.5),
+    buffer_bp: int = 500,
+    y_lim_bottom: float = -20.0,
+    show_plot: bool = True,
+):
+    """Plots genomic gene tracks as arrow patches with vertical annotation labels.
+
+    Parameters:
+    -----------
+    df_genes : pd.DataFrame
+        DataFrame containing gene metadata with required columns:
+        'start_position', 'end_position', 'strandedness', and the specified
+        label_col.
+    label_col : str, optional
+        Column name to use for labeling genes (e.g., 'kegg_hit', 'viral_hit',
+        'peptidase_hit', 'cazy_best_hit', 'vogdb_hits',
+        'annotation_description'). Default is 'kegg_hit'.
+    figsize : tuple, optional
+        Dimensions of the matplotlib figure (width, height). Default is (12,
+        3.5).
+    buffer_bp : int, optional
+        Extra sequence padding added to the maximum end position for plot
+        limits. Default is 500.
+    y_lim_bottom : float, optional
+        Lower y-axis limit to accommodate rotated vertical labels. Default is
+        -20.0.
+    show_plot : bool, optional
+        Whether to call plt.show() immediately. Default is True.
+
+    Returns:
+    --------
+    fig, ax : matplotlib figure and axis objects
+    """
+    genome_length = df_genes["end_position"].max() + buffer_bp
+
+    fig, ax = plt.subplots(figsize=figsize)
+
+    for _, row in df_genes.iterrows():
+        start, end, strand = (
+            row["start_position"],
+            row["end_position"],
+            row["strandedness"],
+        )
+        length = end - start
+        color = "#4C72B0" if strand in ["+", 1] else "#DD8452"
+        head_len = min(length * 0.25, 200)
+
+        dx = length if strand in ["+", 1] else -length
+        x_start = start if strand in ["+", 1] else end
+
+        # 1. Draw Arrow
+        arrow = patches.FancyArrow(
+            x_start,
+            0,
+            dx,
+            0,
+            width=0.3,
+            head_width=0.5,
+            head_length=head_len,
+            length_includes_head=True,
+            color=color,
+            ec="black",
+            linewidth=0.5,
+        )
+        ax.add_patch(arrow)
+
+        # 2. Add Label Below (if column exists and value isn't empty/NaN)
+        if label_col in row and pd.notna(row[label_col]):
+            label_text = str(row[label_col])
+            midpoint = start + (length / 2)  # Center text relative to the gene
+
+            ax.text(
+                x=midpoint,
+                y=-0.35,  # Placed just below the arrow track
+                s=label_text,
+                rotation=90,
+                ha="center",  # Horizontal center aligned with gene midpoint
+                va="top",  # Top of text anchored at y=-0.35 (grows downwards)
+                fontsize=8,
+                clip_on=True,  # Keeps labels within plot bounds
+            )
+
+    # Baseline genome track
+    ax.plot([0, genome_length], [0, 0], color="black", linewidth=1, zorder=0)
+
+    # Styling
+    ax.set_xlim(0, genome_length)
+    ax.set_ylim(y_lim_bottom, 1)
+    ax.set_yticks([])
+    ax.set_xlabel("Genomic Position (bp)")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+
+    plt.tight_layout()
+
+    if show_plot:
+        plt.show()
+
+    return fig, ax
