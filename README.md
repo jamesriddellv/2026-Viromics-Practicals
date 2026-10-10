@@ -1,5 +1,5 @@
 # 2026-Viromics-Practicals
- Practical examples for Viromics Workshop 2026. Contains a guided walkthrough of virus identification, annotation, taxonomy, host prediction, and ecological statistics. The following work is based on results from "Viruses help shape microbiome response to polyphenol rewiring of methane-suppressed peat microcosms"{https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003925}
+ Practical examples for Viromics Workshop 2026. Contains a guided walkthrough of virus identification, annotation, taxonomy, host prediction, and ecological statistics. The following work is based on results from ["Viruses help shape microbiome response to polyphenol rewiring of methane-suppressed peat microcosms"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003925)
  
  Human activities are accelerating permafrost thaw and subsequent methane emissions from increased microbial activity, prompting microbiome engineering efforts as an emissions mitigation strategy.
 
