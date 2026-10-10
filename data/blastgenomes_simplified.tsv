@@ -1,4 +1,4 @@
-qseqid	sseqid	pident	length	mismatch	gapopen	qstart	qend	sstart	send	evalue	bitscore  qlen  slen  frame  frame2
+qseqid	sseqid	pident	length	mismatch	gapopen	qstart	qend	sstart	send	evalue	bitscore	qlen	slen	frame	frame2
 contig_1022629	3300022830_3|3300022830.a:Ga0224515_1001538	86.004	3844	463	51	32419	36233	1	3798	0.0	4048	48048	3798	3306	3306
 contig_1022629	3300022830_3|3300022830.a:Ga0224515_1002016	91.016	2983	254	10	25159	28138	2972	1	0.0	4012	48048	3334	2715	2715
 contig_1022629	Add_STM_0716_E_M_E026_A_bin.32|Add_STM_0716_E_M_E026_A_bin.32_k121_1414028	88.995	1981	182	22	45860	47828	3	1959	0.0	2418	48048	9802	1763	1763
