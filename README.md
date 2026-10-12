@@ -1,5 +1,19 @@
 # 2026-Viromics-Practicals
  Practical examples for Viromics Workshop 2026. Contains a guided walkthrough of virus identification, annotation, taxonomy, host prediction, and ecological statistics. The following work is based on results from ["Viruses help shape microbiome response to polyphenol rewiring of methane-suppressed peat microcosms"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003925)
+
+ Goals for these hands-on exercises:
+ 1. Get comfortable using exploratory data analysis in python (with our without AI-assistance) to analyze outputs from geNomad, CheckV, DRAMv, iPHoP, vConTACT3, and relative abundance tables.
+ 2. Learn dimensionality reduction and statistical analyses for sparse ecological data.
+ 3. Learn how to leverage multiple viromics tool outputs to build a holistic understanding of the ecological role of viruses.
+ 4. Learn different data visualization techniques for communicating viromics results.
+
+Non-goals:
+1. We will not cover how to run these tools on the HPC (Dr. Bonnie Hurwitz will cover this topic on the final day of the workshop).
+2. We will not learn how to code in python (data structures, algorithms).
+3. We will not explore the differences between viromics tools that achieve the same goal (i.e., comparing virus ID tools).
+
+
+Context:
  
  Human activities are accelerating permafrost thaw and subsequent methane emissions from increased microbial activity, prompting microbiome engineering efforts as an emissions mitigation strategy.
 
