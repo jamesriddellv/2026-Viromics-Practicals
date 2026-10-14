@@ -40,3 +40,11 @@ Day 1 and 2 exercises cover virus identification, functional annotation, and eco
 
 Please open a GitHub issue or email me at riddell.26@osu.edu if you have additional questions or notice anything that can be improved.
 
+### Common questions
+
+1. Prophages--trimming, quality control
+2. Lots of hypotheticals, is it really a virus?
+3. Constitutively circular, gene synteny
+4. Shared machinery--plasmid replication
+5. what are useful cutoffs for relative abundance?
+
